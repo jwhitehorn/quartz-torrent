@@ -1,11 +1,11 @@
 require 'quartz_torrent/util'
 require 'uri'
-require 'base32'
+require 'base32_pure'
 
 module QuartzTorrent
   class MagnetURI
     @@regex = /magnet:\?(.*)/
-  
+
     # Create a new MagnetURI object given a magnet URI string.
     def initialize(str)
       @params = {}
@@ -39,10 +39,10 @@ module QuartzTorrent
           hash = $1
           if hash.length == 40
             # Hex-encoded info hash. Convert to binary.
-            result = [hash].pack "H*" 
+            result = [hash].pack "H*"
           else
             # Base32 encoded
-            result = Base32.decode hash
+            result = Base32::Crockford.decode(hash)
           end
           break
         end
@@ -60,7 +60,7 @@ module QuartzTorrent
       end
     end
 
-    # Return an array of all tracker URLS in the magnet link. 
+    # Return an array of all tracker URLS in the magnet link.
     def trackers
       tr = @params['tr']
       if tr

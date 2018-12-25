@@ -1,0 +1,25 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    base32_pure (0.1.0)
+    bencode (0.8.2)
+    log4r (1.1.10)
+    minitest (5.11.3)
+    pqueue (2.1.0)
+    redcarpet (3.4.0)
+    yard (0.9.16)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  base32_pure (~> 0.1.0)
+  bencode (~> 0.8.2)
+  log4r (~> 1.1, >= 1.1.10)
+  minitest (~> 5.11, >= 5.7.0)
+  pqueue (~> 2.1)
+  redcarpet (~> 3.4)
+  yard (~> 0.9.16)
+
+BUNDLED WITH
+   1.16.2
